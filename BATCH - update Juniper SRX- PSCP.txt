@@ -1,0 +1,36 @@
+@echo off
+setlocal
+
+:: Define variables
+set "scp_path=C:\Program Files\PuTTY\pscp.exe"   :: Path to pscp.exe
+set "plink_path=C:\Program Files\PuTTY\plink.exe" :: Path to plink.exe
+set "image_file=junos_image.tgz"                 :: Replace with the name of your Junos image file
+set "srx_ip=192.168.1.1"                        :: Replace with your SRX IP address
+set "username=your_username"                     :: Replace with your username
+set "password=your_password"                     :: Replace with your password
+set "remote_image_path=/var/tmp/junos_image.tgz" :: Path where the image will be stored on the SRX
+
+:: Upload the Junos image to the SRX
+echo Uploading Junos image to SRX...
+"%scp_path%" -pw %password% %image_file% %username%@%srx_ip%:%remote_image_path%
+
+:: Verify the image is uploaded
+echo Verifying image upload...
+plink.exe -pw %password% %username%@%srx_ip% "file show %remote_image_path%" > file_output.txt
+findstr /i "%image_file%" file_output.txt > nul
+if %errorlevel% neq 0 (
+    echo Error: Image file not found at %remote_image_path%.
+    exit /b 1
+)
+
+:: Install the new Junos image
+echo Installing new Junos image...
+plink.exe -pw %password% %username%@%srx_ip% "cli -c 'request system software add %remote_image_path%'" > nul
+
+:: Reboot the SRX to apply the new image
+echo Rebooting the SRX...
+plink.exe -pw %password% %username%@%srx_ip% "cli -c 'request system reboot'" > nul
+
+echo SRX reboot initiated with new image.
+
+endlocal
