@@ -1,0 +1,24 @@
+tclsh
+
+# Retrieve err-disabled ports due to port-security
+set err_disabled_ports [exec show interfaces status err-disabled]
+
+# Process each line of the output
+foreach line [split $err_disabled_ports "\n"] {
+    if {[string match "*err-disabled*" $line] && [string match "*port-security*" $line]} {
+        set interface [lindex $line 0]
+
+        # Clear port security and MAC address table
+        exec conf t
+        exec interface $interface
+        exec no shutdown
+        exec no port-security
+        exec exit
+        exec clear mac address-table dynamic interface $interface
+
+        # Print confirmation
+        puts "Cleared port security and MAC address table for $interface"
+    }
+}
+
+puts "Completed processing all err-disabled ports due to port security."
