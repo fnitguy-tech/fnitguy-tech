@@ -1,0 +1,37 @@
+tclsh
+
+# Define the switch configuration
+set access_ports [list "GigabitEthernet0/1" "GigabitEthernet0/2" "GigabitEthernet0/3" "GigabitEthernet0/4"] ;# Add your access ports here
+
+# Enter configuration mode
+exec conf t
+
+# Disable port security on all access ports
+foreach port $access_ports {
+    exec interface $port
+    exec no switchport port-security
+    exec no switchport port-security maximum
+    exec no switchport port-security violation
+    exec no switchport port-security mac-address
+    exec exit
+}
+
+# Configure 802.1X on all access ports
+foreach port $access_ports {
+    exec interface $port
+    exec dot1x pae authenticator
+    exec dot1x port-control auto
+    exec dot1x timeout reauth-period 3600
+    exec no shutdown
+    exec exit
+}
+
+# Configure global 802.1X settings
+exec dot1x system-auth-control
+
+# Exit configuration mode and save
+exec end
+exec write memory
+
+# End of Script
+tclquit

@@ -1,0 +1,38 @@
+@echo off
+setlocal
+
+:: Define variables
+set "scp_path=C:\Program Files\PuTTY\pscp.exe"   :: Path to pscp.exe
+set "plink_path=C:\Program Files\PuTTY\plink.exe" :: Path to plink.exe
+set "image_file=panos_image.tgz"                 :: Replace with the name of your PAN-OS image file
+set "firewall_ip=192.168.1.1"                    :: Replace with your Palo Alto firewall IP address
+set "username=your_username"                     :: Replace with your username
+set "password=your_password"                     :: Replace with your password
+set "remote_image_path=/var/tmp/panos_image.tgz" :: Path where the image will be stored on the firewall
+
+:: Upload the PAN-OS image to the firewall
+echo Uploading PAN-OS image to firewall...
+"%scp_path%" -pw %password% %image_file% %username%@%firewall_ip%:%remote_image_path%
+
+:: Verify the image is uploaded
+echo Verifying image upload...
+plink.exe -pw %password% %username%@%firewall_ip% "scp show %remote_image_path%" > file_output.txt
+findstr /i "%image_file%" file_output.txt > nul
+if %errorlevel% neq 0 (
+    echo Error: Image file not found at %remote_image_path%.
+    exit /b 1
+)
+
+:: Install the new PAN-OS image
+echo Installing new PAN-OS image...
+plink.exe -pw %password% %username%@%firewall_ip% "configure" > nul
+plink.exe -pw %password% %username%@%firewall_ip% "request system software install file %remote_image_path%" > nul
+plink.exe -pw %password% %username%@%firewall_ip% "commit" > nul
+
+:: Reboot the firewall to apply the new image
+echo Rebooting the firewall...
+plink.exe -pw %password% %username%@%firewall_ip% "request restart system" > nul
+
+echo Firewall reboot initiated with new image.
+
+endlocal
