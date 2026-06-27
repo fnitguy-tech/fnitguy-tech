@@ -1,0 +1,41 @@
+@echo off
+setlocal
+
+:: Define variables
+set "scp_path=C:\Program Files\PuTTY\pscp.exe"   :: Path to pscp.exe
+set "image_file=new_image.bin"                   :: Replace with the name of your image file
+set "switch_ip=192.168.1.1"                      :: Replace with your switch IP address
+set "username=your_username"                     :: Replace with your username
+set "password=your_password"                     :: Replace with your password
+set "boot_image_path=flash:new_image.bin"        :: Path where the image will be stored on the switch
+
+:: Upload the IOS image to the switch
+echo Uploading IOS image to switch...
+"%scp_path%" -pw %password% %image_file% %username%@%switch_ip%:%boot_image_path%
+
+:: Verify the image is uploaded
+echo Verifying image upload...
+plink.exe -pw %password% %username%@%switch_ip% "dir flash:" > dir_output.txt
+findstr /i "%image_file%" dir_output.txt > nul
+if %errorlevel% neq 0 (
+    echo Error: Image file not found on flash.
+    exit /b 1
+)
+
+:: Set the new image as the boot image
+echo Setting new image as the boot image...
+plink.exe -pw %password% %username%@%switch_ip% "conf t" > nul
+plink.exe -pw %password% %username%@%switch_ip% "boot system flash:%image_file%" > nul
+plink.exe -pw %password% %username%@%switch_ip% "end" > nul
+
+:: Save the configuration
+echo Saving configuration...
+plink.exe -pw %password% %username%@%switch_ip% "write memory" > nul
+
+:: Reload the switch to apply the new image
+echo Reloading the switch...
+plink.exe -pw %password% %username%@%switch_ip% "reload" > nul
+
+echo Switch reload initiated with new image.
+
+endlocal

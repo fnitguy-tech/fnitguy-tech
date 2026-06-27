@@ -1,9 +1,34 @@
-- 👋 Hi, I’m @fnitguy-tech
-- 👀 I’m interested in ... network security, networking, and automation.
-- 💞️ I’m looking to collaborate on ... TCL Scripts, Automation with Juniper SRX's and Palo Alto Firewalls
-- 📫 How to reach me ... zrogers@fnitguy.tech
+# FN IT Guy
 
-<!---
-fnitguy-tech/fnitguy-tech is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+Network engineering, automation, observability, and infrastructure lab projects.
+
+## Featured Areas
+
+- Network Automation
+- Cisco, Juniper, Palo Alto, and Arista
+- Graylog and LibreNMS
+- NetBox
+- FreeRADIUS and FreeIPA
+- Docker lab infrastructure
+- YouTube companion guides
+
+## Repository Layout
+
+| Folder | Purpose |
+|---|---|
+| youtube/ | Companion files for FN IT Guy YouTube videos |
+| projects/ | Larger portfolio projects |
+| automation/ | Reusable automation scripts |
+| monitoring/ | Observability, logging, and NMS examples |
+| networking/ | Routing, switching, firewall, and protocol examples |
+| security/ | AAA, certificates, STIGs, and hardening |
+| templates/ | Reusable documentation templates |
+
+## YouTube Guides
+
+- Cisco Switch STIG
+- Juniper SRX Upgrade with PSCP
+- Palo Alto Upgrade with PSCP
+- Jabber/CUCM Automation
+- Cisco TCL Scripts
+
