@@ -8,7 +8,7 @@ I build practical tools that simplify operations, improve visibility, and automa
 
 ## Featured Projects
 
-🚀 **Network Status Collector** *(Coming Soon)*
+🚀 **Network Status Collector**
 
 Automated pre- and post-maintenance validation for enterprise network environments.
 
