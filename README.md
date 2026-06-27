@@ -1,4 +1,4 @@
-# FN IT Guy
+# FNIT Guy
 
 Network engineering, automation, observability, and infrastructure lab projects.
 
