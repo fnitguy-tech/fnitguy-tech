@@ -174,7 +174,7 @@ Before using in production:
 
 ## Project Attribution
 
-The core CUCM automation contained in this repository was originally developed by **David Osborne**, who designed and implemented the automation workflow using AI-assisted development techniques.
+The core CUCM automation contained in this repository was originally developed by **David Osborne**, who designed and implemented the automation workflow.
 
 **Zack Rogers** organized the project for public release by improving the repository structure, documentation, dependency management, and overall usability so that other engineers can more easily understand, deploy, and extend the automation.
 
