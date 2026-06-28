@@ -182,8 +182,8 @@ Always validate the automation in a non-production environment before deploying 
 ## Author
 
 **David Osborne** & **Zack Rogers**
-David: https://www.linkedin.com/in/davidrayosborne/
 Network Engineering • Automation • Infrastructure • Observability
 
+David: https://www.linkedin.com/in/davidrayosborne/
 GitHub: https://github.com/fnitguy-tech
 YouTube: www.youtube.com/@fnitguy
