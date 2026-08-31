@@ -23,6 +23,16 @@ sample report from a real 10-device maintenance window.
 
 ---
 
+🧩 **[project-template](https://github.com/fnitguy-tech/project-template)**
+
+The starting skeleton I use for infrastructure-automation projects: a
+Python role pipeline (dry-run first, per-host error isolation, explicit
+registry), OpenBao-first secrets handling, gitignored inventories with
+checked-in examples, offline tests, and runbook skeletons. Marked as a
+GitHub template - click **Use this template** to start a project from it.
+
+---
+
 ## YouTube Resources
 
 The `youtube/` directory contains companion guides, scripts, and lab files
