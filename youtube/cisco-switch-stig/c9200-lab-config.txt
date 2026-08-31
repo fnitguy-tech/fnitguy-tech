@@ -168,10 +168,10 @@ spanning-tree loopguard default
 spanning-tree extend system-id
 !
 !
-enable secret 9 $9$Q1GGtuPRycjQkU$Ugbvu70KT3f8SKhU7sn4ifQ8lhzcQr8MjkuV6klBAqI
+enable secret 9 $9$xEXAMPLEHASHxxxx$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 !
 !
-username fnitguy privilege 15 common-criteria-policy PASSWORD_POLICY secret 9 $9$LTF57A1g0M0dlE$9LdVSe597OmM//rrFY7w5DyNiQ.SPigBRUfjySsa3X2
+username fnitguy privilege 15 common-criteria-policy PASSWORD_POLICY secret 9 $9$xEXAMPLEHASHxxxx$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 crypto engine compliance shield disable
 !
 !

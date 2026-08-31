@@ -1,42 +1,32 @@
 # Hi, I'm Zack Rogers 👋
 
-Lead Network Engineer specializing in enterprise networking, network automation, and infrastructure observability.
+Lead Network Engineer working across enterprise networking, infrastructure
+automation, and security operations. I design, build, and run
+enterprise-grade infrastructure — routing, switching, firewalls,
+virtualization, identity, observability, and SIEM — and automate it like
+production, because it is.
 
-I build practical tools that simplify operations, improve visibility, and automate repetitive network engineering tasks. Every project in this repository is designed to solve a real operational problem and be useful to other engineers.
+📝 **Writing and case studies: [fnitguy.tech](https://fnitguy.tech)** — deep
+dives on security response automation, deploying a SIEM from the ground up,
+observability stacks, and infrastructure-as-code for network devices.
 
 ---
 
 ## Featured Projects
 
-🚀 **Network Status Collector**
+🔍 **[prepost-check](https://github.com/fnitguy-tech/prepost-check)**
 
-Automated pre- and post-maintenance validation for enterprise network environments.
-
----
-
-📞 **CUCM User Automation**
-
-Automates Cisco Unified Communications Manager user provisioning using Python, PowerShell, and the Cisco AXL API.
-
-➡️ [`projects/cucm-user-automation/`](projects/cucm-user-automation)
-
----
-
-📊 **Graylog Observability Lab** *(Coming Soon)*
-
-Enterprise logging, dashboards, pipelines, and Docker-based deployment.
-
----
-
-🌐 **NetBox Bootstrap Toolkit** *(Coming Soon)*
-
-Automation examples for infrastructure documentation and inventory management.
+Pre/post change validation for network maintenance windows: parallel state
+capture (Arista EOS, Palo Alto PAN-OS), noise-normalized diffs, and an
+interpreted HTML report with per-device impact scoring. Includes a sanitized
+sample report from a real 10-device maintenance window.
 
 ---
 
 ## YouTube Resources
 
-The `youtube/` directory contains companion guides, scripts, and lab files for videos published on the **FN IT Guy** YouTube channel.
+The `youtube/` directory contains companion guides, scripts, and lab files
+for videos published on the **FN IT Guy** YouTube channel.
 
 Topics include:
 
@@ -52,35 +42,30 @@ Topics include:
 
 **Networking**
 
-Cisco • Arista • Juniper • Palo Alto
+Cisco • Arista • Juniper • Palo Alto • Cradlepoint
 
 **Automation**
 
-Python • PowerShell • Git • GitHub
+Python • PowerShell • Netmiko • REST APIs • Git
 
 **Infrastructure**
 
-Linux • Docker • Graylog • LibreNMS • NetBox
+Linux (RHEL) • KVM • Docker • Ceph • Pacemaker HA • Foreman/Katello
+
+**Observability & Security Operations**
+
+Prometheus • Grafana • Loki • Wazuh (SIEM/SOAR) • Zabbix • Graylog • LibreNMS • NetBox
 
 **Identity & Security**
 
-FreeRADIUS • FreeIPA • LDAP • PKI
+FreeIPA • FreeRADIUS • MFA • OpenBao • PKI • DISA STIG / OpenSCAP
 
 ---
 
-## Why I Built This Repository
+## Why This Exists
 
-Network engineers solve complex problems every day, but many of the tools and workflows remain undocumented or manual.
-
-This repository exists to share practical solutions, reusable automation, and well-documented lab projects that help engineers learn, automate, and build better networks.
-
----
-
-## Current Roadmap
-
-- 🚀 Network Status Collector
-- 📊 Graylog Observability Lab
-- 🌐 NetBox Bootstrap Toolkit
-- 🔐 FreeRADIUS + FreeIPA Lab
-- 📈 LibreNMS API Toolkit
-- 🐳 Docker Infrastructure Lab
+Network engineers solve complex problems every day, but many of the tools
+and workflows remain undocumented or manual. Everything here — and the
+longer write-ups on [fnitguy.tech](https://fnitguy.tech) — exists to share
+practical solutions, reusable automation, and honest lessons learned, so
+other engineers can learn, automate, and build better networks.
